@@ -1,0 +1,80 @@
+version: 2.1
+
+orbs:
+  cypress: cypress-io/cypress@3
+  jq: circleci/jq@3.0.0
+
+aliases:
+  - &attach_workspace
+    attach_workspace:
+      at: .
+  - &persist_to_workspace
+    persist_to_workspace:
+      root: .
+      paths:
+        - .
+
+workflows:
+  sauce-web-tests:
+    jobs:
+      - build
+      - create_test_run:
+          requires:
+            - build
+      - test_sauce:
+          requires:
+            - create_test_run
+      - post_results:
+          requires:
+            - test_sauce
+
+jobs:
+  build:
+    docker:
+      - image: cypress/browsers:node18.12.0-chrome106-ff106
+    steps:
+      - checkout
+      - *persist_to_workspace
+  create_test_run:
+    docker:
+      - image: cypress/browsers:node18.12.0-chrome106-ff106
+    steps:
+      - *attach_workspace
+      - jq/install
+      - create_testrail_run
+      - *persist_to_workspace
+  test_sauce:
+    docker:
+      - image: cypress/browsers:node18.12.0-chrome106-ff106
+    steps:
+      - *attach_workspace
+      - cypress/install
+      - test_web_sauce
+      - *persist_to_workspace
+  post_results:
+    docker:
+      - image: cypress/browsers:node18.12.0-chrome106-ff106
+    steps:
+      - *attach_workspace
+      - jq/install
+      - post_testrail_results
+
+commands:
+  test_web_sauce:
+    description: Run web e2e scenarios
+    steps:
+      - run:
+          name: Run web e2e scenarios
+          command: npm test
+  create_testrail_run:
+    description: Create TestRail Run
+    steps:
+      - run:
+          name: Create TestRail Run
+          command: sh ./testrail/create_testplan.sh
+  post_testrail_results:
+    description: Post TestRail Results
+    steps:
+      - run:
+          name: Post TestRail Results
+          command: sh ./testrail/post_results.sh
