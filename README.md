@@ -1,6 +1,6 @@
 ## CircleCi
 
-[![CircleCI](https://dl.circleci.com/status-badge/img/circleci/3wpbqkvAsucz787stKvtb4/PrwxsnPXzoFnPKeZ1PPoZ2/tree/main.svg?style=svg&circle-token=b41e288b1cba60a3bba8fe291895cfd99eae3f91)](https://dl.circleci.com/status-badge/redirect/circleci/3wpbqkvAsucz787stKvtb4/PrwxsnPXzoFnPKeZ1PPoZ2/tree/main)
+[![CircleCI](https://dl.circleci.com/status-badge/img/circleci/2ZtfsLBW1ANB3wBFAx75Ai/VgTpSgnbVa11j7hSNoWcQv/tree/main.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/circleci/2ZtfsLBW1ANB3wBFAx75Ai/VgTpSgnbVa11j7hSNoWcQv/tree/main)
 
 # cypress_demo_art_p
 
