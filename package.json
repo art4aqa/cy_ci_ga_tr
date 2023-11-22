@@ -1,0 +1,22 @@
+{
+  "name": "cypress_demo_art_p",
+  "version": "0.0.0",
+  "description": "cypres demo project",
+  "scripts": {
+    "test": "npx cypress run --record --key $CYPRESS_RECORD_KEY",
+    "open": "npx cypress open"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ArthurPopko/cypress_demo_art_p.git"
+  },
+  "author": "Artur Papko",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ArthurPopko/cypress_demo_art_p/issues"
+  },
+  "homepage": "https://github.com/ArthurPopko/cypress_demo_art_p#readme",
+  "devDependencies": {
+    "cypress": "^13.3.2"
+  }
+}

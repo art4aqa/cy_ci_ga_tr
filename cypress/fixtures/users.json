@@ -1,0 +1,10 @@
+{
+  "happyPathUser": {
+    "name": "standard_user",
+    "password": "secret_sauce"
+  },
+  "sadPathUser": {
+    "name": "locked_out_user",
+    "password": "secret_sauce"
+  }
+}
