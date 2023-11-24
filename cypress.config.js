@@ -26,12 +26,12 @@ module.exports = defineConfig({
 									? 6
 									: 3
 							let result = { case_id: `${caseId}`, status_id: `${status}` }
-							result.comment = test
+							result.comment = 'test comment'
 							RUN_RESULTS.results.push(result)
 							console.log('test:', test.title[1], test.state)
 						})
-						console.log(run)
 					})
+					console.log(results)
 					console.log(RUN_RESULTS)
 					writeToFile(RESULTS_PATH, RUN_RESULTS)
 				}
