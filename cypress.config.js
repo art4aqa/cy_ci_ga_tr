@@ -11,7 +11,6 @@ module.exports = defineConfig({
 				if (results) {
 					const RUN_RESULTS = { results: [] },
 						RESULTS_PATH = './testrail/results.json'
-					// results will be undefined in interactive mode
 					results.runs.forEach((run) => {
 						run.tests.forEach((test) => {
 							let caseId = titleToCaseIds(test.title[1])
@@ -26,8 +25,8 @@ module.exports = defineConfig({
 									? 6
 									: 3
 							let result = { case_id: `${caseId}`, status_id: `${status}` }
+							result.comment = results.runUrl
 							RUN_RESULTS.results.push(result)
-							console.log('test:', test.title[1], test.state)
 						})
 					})
 					console.log(RUN_RESULTS)
