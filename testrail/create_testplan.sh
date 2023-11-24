@@ -7,7 +7,7 @@ TEST_RUN_INFO=$(
 	curl -H "Content-Type: application/json" \
 -u $TESTRAIL_USERNAME:$TESTRAIL_PASSWORD \
 --request POST \
---data \'{"name":"test run $current_time","description":"testing...", "suite_id":"4"}\' \
+--data '{"name":"test run $current_time","description":"testing...", "suite_id":"$suit_id"}' \
 "https://cyintegration.testrail.com/index.php?/api/v2/add_run/2"
 )
 
