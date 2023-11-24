@@ -26,7 +26,9 @@ module.exports = defineConfig({
 									? 6
 									: 3
 							let result = { case_id: `${caseId}`, status_id: `${status}` }
+							result.comment = test.body
 							RUN_RESULTS.results.push(result)
+							console.log(test)
 							console.log('test:', test.title[1], test.state)
 						})
 					})
